@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Règle du quotient</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: "\\(", right: "\\)", display: false },
+      { left: "$$", right: "$$", display: true }
+    ]
+  });
+});
+</script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fb;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header.hero {
+  background: #111827;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+/* CONTAINER */
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* BLOCS */
+.box {
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  border-left: 6px solid transparent;
+}
+
+/* COULEURS */
+.definition {
+  background: #e0f2fe;
+  border-left-color: #0284c7;
+}
+
+.theory {
+  background: #ede9fe;
+  border-left-color: #7c3aed;
+}
+
+.warning {
+  background: #fee2e2;
+  border-left-color: #dc2626;
+}
+
+.step {
+  background: #fef9c3;
+  border-left-color: #ca8a04;
+}
+
+.result {
+  background: #dcfce7;
+  border-left-color: #16a34a;
+}
+
+/* BACK BUTTON */
+.nav-card {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.back-link {
+  background: linear-gradient(135deg, #111827, #374151);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.back-link:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #1f2937, #4b5563);
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <h1>Règle du quotient</h1>
+  <p>Dérivée d’un rapport de fonctions</p>
+</header>
+
+<main>
+
+<!-- INTUITION -->
+<div class="box definition">
+  <h3>Intuition</h3>
+  <p>
+    La dérivée d’un quotient dépend de la variation du numérateur et du dénominateur.
+    Une croissance en bas réduit l’effet global.
+  </p>
+</div>
+
+<!-- FORMULE -->
+<div class="box theory">
+  <h3>Règle du quotient</h3>
+  <p>
+    Si \( f(x)=\frac{u(x)}{v(x)} \), alors :
+  </p>
+  <p>
+    \( f'(x)=\frac{u'(x)v(x)-u(x)v'(x)}{v(x)^2} \)
+  </p>
+</div>
+
+<!-- ERREUR -->
+<div class="box warning">
+  <h3>Erreur fréquente</h3>
+  <p>
+    ❌ Dériver séparément numérateur et dénominateur<br>
+    ✔ Toujours utiliser la formule complète
+  </p>
+</div>
+
+<hr>
+
+<!-- EXEMPLE 1 -->
+<h2>Exemple 1 — Polynômes</h2>
+
+<div class="box step">
+  <p><b>Fonction :</b> \( f(x)=\frac{x^2}{x+1} \)</p>
+
+  <p>
+    \( u(x)=x^2,\quad v(x)=x+1 \)
+  </p>
+
+  <p>
+    \( u'(x)=2x,\quad v'(x)=1 \)
+  </p>
+
+  <p>
+    \( f'(x)=\frac{2x(x+1)-x^2(1)}{(x+1)^2} \)
+  </p>
+</div>
+
+<div class="box result">
+  <p><b>Résultat :</b></p>
+  <p>
+    \( f'(x)=\frac{x^2+2x}{(x+1)^2} \)
+  </p>
+</div>
+
+<hr>
+
+<!-- EXEMPLE 2 -->
+<h2>Exemple 2 — Racine</h2>
+
+<div class="box step">
+  <p><b>Fonction :</b> \( f(x)=\frac{\sqrt{x}}{x} \)</p>
+
+  <p>
+    \( f(x)=\frac{x^{1/2}}{x} \)
+  </p>
+
+  <p>
+    \( u(x)=x^{1/2},\quad v(x)=x \)
+  </p>
+
+  <p>
+    \( u'(x)=\frac{1}{2}x^{-1/2},\quad v'(x)=1 \)
+  </p>
+
+  <p>
+    \( f'(x)=\frac{\frac{1}{2}x^{-1/2}\cdot x - x^{1/2}\cdot 1}{x^2} \)
+  </p>
+</div>
+
+<div class="box result">
+  <p>
+    \( f'(x)=\frac{1}{2}x^{-1/2}-x^{-3/2} \)
+  </p>
+</div>
+
+<h2>Exemple 2 — Racine (avec simplification)</h2>
+
+<div class="box step">
+  <p><b>Fonction :</b> \( f(x)=\frac{\sqrt{x}}{x} \)</p>
+
+  <p><b>Étape 1 — Simplification :</b></p>
+  <p>
+    \( f(x)=\frac{x^{1/2}}{x}=x^{1/2-1}=x^{-1/2} \)
+  </p>
+</div>
+
+<div class="box step">
+  <p><b>Étape 2 — Dérivation :</b></p>
+
+  <p>
+    \( f'(x)= -\frac{1}{2}x^{-3/2} \)
+  </p>
+</div>
+
+<div class="box result">
+  <p><b>Résultat :</b></p>
+  <p>
+    \( f'(x)= -\frac{1}{2x^{3/2}} \)
+  </p>
+</div>
+
+<hr>
+
+
+
+<!-- EXEMPLE 3 -->
+<h2>Exemple 3 — Exponentielle</h2>
+
+<div class="box step">
+  <p><b>Fonction :</b> \( f(x)=\frac{e^x}{x^2} \)</p>
+
+  <p>
+    \( u(x)=e^x,\quad v(x)=x^2 \)
+  </p>
+
+  <p>
+    \( u'(x)=e^x,\quad v'(x)=2x \)
+  </p>
+
+  <p>
+    \( f'(x)=\frac{e^x x^2 - e^x(2x)}{x^4} \)
+  </p>
+</div>
+
+<div class="box result">
+  <p>
+    \( f'(x)=\frac{e^x(x^2-2x)}{x^4} \)
+  </p>
+</div>
+
+<!-- RETOUR -->
+<section class="nav-card">
+  <a class="back-link" href="index.html">← Retour dérivation</a>
+</section>
+
+</main>
+
+</body>
+</html>
