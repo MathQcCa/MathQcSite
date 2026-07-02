@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dérivation implicite — inverses, exp, log</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: "\\(", right: "\\)", display: false },
+      { left: "$$", right: "$$", display: true }
+    ]
+  });
+});
+</script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fb;
+  line-height: 1.6;
+}
+
+header.hero {
+  background: #111827;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.box {
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  border-left: 6px solid transparent;
+}
+
+.definition { background:#e0f2fe; border-left-color:#0284c7; }
+.theory { background:#ede9fe; border-left-color:#7c3aed; }
+.step { background:#fef9c3; border-left-color:#ca8a04; }
+.result { background:#dcfce7; border-left-color:#16a34a; }
+.warning { background:#fee2e2; border-left-color:#dc2626; }
+
+h2 { margin-top: 35px; }
+
+.nav-card {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.back-link {
+  background: linear-gradient(135deg,#111827,#374151);
+  color:white;
+  padding:12px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.back-link:hover {
+  transform: translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <h1>Dérivation implicite</h1>
+  <p>Fonctions inverses, exponentielles et logarithmes</p>
+</header>
+
+<main>
+
+<div class="box definition">
+  <h3>Principe général</h3>
+  <p>
+    On transforme la fonction en équation implicite, puis on dérive des deux côtés en appliquant la règle de la chaîne.
+  </p>
+</div>
+
+<div class="box theory">
+  <h3>Règles essentielles</h3>
+  <p>
+    \( \frac{d}{dx}(y)=y' \quad,\quad \frac{d}{dx}(y^n)=ny^{n-1}y' \)
+  </p>
+  <p>
+    \( \frac{d}{dx}(\sin y)=\cos(y)y' \quad,\quad \frac{d}{dx}(e^y)=e^y y' \)
+  </p>
+
+  
+</div>
+<img src="SubtitutionSinYEgaleX.png" alt="Dessin illustrant la substitution de sin(y) par x" style="max-width:100%; margin-top:15px;">
+<hr>
+
+<h2>Trigonométrie inverse (méthode implicite)</h2>
+
+<h2>1 — Arcsin </h2>
+<div class="box step">
+  <p><b>Exemple :</b> \( y=\arcsin(x) \)</p>
+
+  <p>Équation implicite :</p>
+  <p>\( \sin(y)=x \)</p>
+
+  <p>Dérivation :</p>
+  <p>\( \cos(y)y'=1 \)</p>
+
+  <p>Isolation :</p>
+  <p>\( y'=\frac{1}{\cos(y)} \)</p>
+
+  <p>Substitution :</p>
+  <p>\( \cos(y)=\sqrt{1-x^2} \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=\frac{1}{\sqrt{1-x^2}} \)</p>
+</div>
+
+<hr>
+
+<h2>2 — Arccos</h2>
+
+<div class="box step">
+  <p>\( y=\arccos(x) \Rightarrow \cos(y)=x \)</p>
+
+  <p>\( -\sin(y)y'=1 \)</p>
+
+  <p>\( y'=-\frac{1}{\sin(y)} \)</p>
+
+  <p>\( \sin(y)=\sqrt{1-x^2} \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=-\frac{1}{\sqrt{1-x^2}} \)</p>
+</div>
+
+<hr>
+
+<h2>3 — Arctan</h2>
+
+<div class="box step">
+  <p>\( y=\arctan(x) \Rightarrow \tan(y)=x \)</p>
+
+  <p>\( \sec^2(y)y'=1 \)</p>
+
+  <p>\( y'=\frac{1}{\sec^2(y)} \)</p>
+
+  <p>\( \sec^2(y)=1+x^2 \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=\frac{1}{1+x^2} \)</p>
+</div>
+
+<hr>
+
+<h2>4 — Arcsec</h2>
+
+<div class="box step">
+  <p>\( y=\operatorname{arcsec}(x) \Rightarrow \sec(y)=x \)</p>
+
+  <p>\( \sec(y)\tan(y)y'=1 \)</p>
+
+  <p>\( y'=\frac{1}{\sec(y)\tan(y)} \)</p>
+
+  <p>\( \tan^2(y)=x^2-1 \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=\frac{1}{|x|\sqrt{x^2-1}} \)</p>
+</div>
+
+<hr>
+
+<h2> Exponentielle et logarithme  avec la dérivation implicite</h2>
+<h2>5 — Exponentielle</h2>
+
+<div class="box step">
+  <p><b>Exemple :</b> \( y=e^x \)</p>
+
+  <p>On écrit :</p>
+  <p>\( \ln(y)=x \)</p>
+
+  <p>Dérivation :</p>
+  <p>\( \frac{1}{y}y'=1 \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=y=e^x \)</p>
+</div>
+
+<hr>
+
+<h2>6 — Exponentielle base a</h2>
+
+<div class="box step">
+  <p>\( y=a^x \Rightarrow \ln(y)=x\ln(a) \)</p>
+
+  <p>\( \frac{1}{y}y'=\ln(a) \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=a^x\ln(a) \)</p>
+</div>
+
+<hr>
+
+<h2>7 — Logarithme naturel</h2>
+
+<div class="box step">
+  <p>\( y=\ln(x) \Rightarrow e^y=x \)</p>
+
+  <p>\( e^y y'=1 \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=\frac{1}{x} \)</p>
+</div>
+
+<hr>
+
+<h2>8 — Log base 10</h2>
+
+<div class="box step">
+  <p>\( y=\log_{10}(x) \Rightarrow 10^y=x \)</p>
+
+  <p>\( 10^y\ln(10)y'=1 \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=\frac{1}{x\ln(10)} \)</p>
+</div>
+
+<hr>
+
+<h2>9 — Log base a</h2>
+
+<div class="box step">
+  <p>\( y=\log_a(x) \Rightarrow a^y=x \)</p>
+
+  <p>\( a^y\ln(a)y'=1 \)</p>
+</div>
+
+<div class="box result">
+  <p>\( y'=\frac{1}{x\ln(a)} \)</p>
+</div>
+
+<section class="nav-card">
+  <a class="back-link" href="index.html">← Retour dérivation</a>
+</section>
+
+</main>
+
+</body>
+</html>

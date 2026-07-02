@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notion de dérivée</title>
+<title>Fonctions trigonométriques inverses</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 
@@ -42,6 +42,7 @@ main {
   padding: 20px;
 }
 
+/* BLOCS */
 .box {
   padding: 15px;
   margin: 15px 0;
@@ -49,6 +50,7 @@ main {
   border-left: 6px solid transparent;
 }
 
+/* TYPES DE BLOCS */
 .definition {
   background: #e0f2fe;
   border-left-color: #0284c7;
@@ -91,118 +93,190 @@ h2 {
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255,255,255,0.1);
   transition: transform 0.15s ease, background 0.2s ease;
 }
 
 .back-link:hover {
-  background: linear-gradient(135deg, #1f2937, #4b5563);
+  background: linear-gradient(135deg,#1f2937,#4b5563);
   transform: translateY(-2px);
 }
 </style>
+
 </head>
 
 <body>
 
 <header class="hero">
-  <h1>Notion de dérivée</h1>
-  <p>Définition par limite et interprétation</p>
+  <h1>Fonctions trigonométriques inverses</h1>
+  <p>Dérivation des fonctions trigonométriques inverses</p>
 </header>
 
 <main>
 
 <div class="box definition">
-  <h3>Définition de la dérivée</h3>
-  <p>
-    \( \displaystyle \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} \)
-  </p>
+<h3>Intuition</h3>
+
+<p>
+Les fonctions trigonométriques inverses permettent de déterminer un angle à partir d'une valeur trigonométrique.
+</p>
+
 </div>
 
 <div class="box theory">
-  <h3>Interprétation</h3>
-  <p>La dérivée représente la pente de la tangente à la courbe en un point.</p>
+
+<h3>Formules de dérivation</h3>
+
+<p>\( (\arcsin x)'=\dfrac{1}{\sqrt{1-x^2}} \)</p>
+
+<p>\( (\arccos x)'=-\dfrac{1}{\sqrt{1-x^2}} \)</p>
+
+<p>\( (\arctan x)'=\dfrac{1}{1+x^2} \)</p>
+
+<p>\( (\operatorname{arcsec}x)'=\dfrac{1}{|x|\sqrt{x^2-1}} \)</p>
+
+<p>\( (\operatorname{arccsc}x)'=-\dfrac{1}{|x|\sqrt{x^2-1}} \)</p>
+
+<p>\( (\operatorname{arccot}x)'=-\dfrac{1}{1+x^2} \)</p>
+
+</div>
+
+<div class="box warning">
+
+<h3>Attention</h3>
+
+<p>
+Les dérivées de <b>arcsec</b> et <b>arccsc</b> contiennent toujours une valeur absolue \( |x| \).
+</p>
+
 </div>
 
 <hr>
 
-<h2>Exemple 1 — Fonction linéaire</h2>
+<h2>Exemple 1 — Arcsinus</h2>
 
 <div class="box step">
-  <p><b>Fonction :</b> \( f(x)=2x+3 \)</p>
 
-  <p><b>Étape 1 :</b> \( f(x+h) \)</p>
-  <p>\( f(x+h)=2x+2h+3 \)</p>
+<p><b>Fonction :</b> \(f(x)=\arcsin(x)\)</p>
 
-  <p><b>Étape 2 :</b> Différence</p>
-  <p>\( f(x+h)-f(x)=2h \)</p>
+<p><b>Application directe :</b></p>
 
-  <p><b>Étape 3 :</b> Quotient</p>
-  <p>\( \frac{2h}{h}=2 \)</p>
+<p>
+\(f'(x)=\dfrac{1}{\sqrt{1-x^2}}\)
+</p>
 
-  <p><b>Étape 4 :</b> Limite</p>
-  <p>\( \displaystyle \lim_{h \to 0} 2 = 2 \)</p>
 </div>
 
 <div class="box result">
-  <p>\( f'(x)=2 \)</p>
+
+<p><b>Résultat :</b></p>
+
+<p>
+\(
+f'(x)=\dfrac{1}{\sqrt{1-x^2}}
+\)
+</p>
+
 </div>
 
 <hr>
 
-<h2>Exemple 2 — Fonction quadratique</h2>
+<h2>Exemple 2 — Arctangente composée</h2>
 
 <div class="box step">
-  <p><b>Fonction :</b> \( f(x)=x^2 \)</p>
 
-  <p><b>Étape 1 :</b> \( f(x+h) \)</p>
-  <p>\( x^2+2xh+h^2 \)</p>
+<p><b>Fonction :</b> \(f(x)=\arctan(3x-1)\)</p>
 
-  <p><b>Étape 2 :</b> Différence</p>
-  <p>\( 2xh+h^2 \)</p>
+<p><b>Étape 1 :</b> Identifier la fonction intérieure.</p>
 
-  <p><b>Étape 3 :</b> Quotient</p>
-  <p>\( 2x+h \)</p>
+<p>\(u(x)=3x-1\)</p>
 
-  <p><b>Étape 4 :</b> Limite</p>
-  <p>\( \displaystyle \lim_{h \to 0} (2x+h)=2x \)</p>
+<p>\(u'(x)=3\)</p>
+
+<p><b>Étape 2 :</b> Appliquer la règle de la chaîne.</p>
+
+<p>
+
+\(
+f'(x)
+=
+\dfrac{1}{1+(3x-1)^2}
+\cdot3
+\)
+
+</p>
+
 </div>
 
 <div class="box result">
-  <p>\( f'(x)=2x \)</p>
+
+<p><b>Résultat :</b></p>
+
+<p>
+
+\(
+f'(x)
+=
+\dfrac{3}{1+(3x-1)^2}
+\)
+
+</p>
+
 </div>
 
 <hr>
 
-<h2>Exemple 3 — Fonction racine</h2>
+<h2>Exemple 3 — Arcsec composée</h2>
 
 <div class="box step">
-  <p><b>Fonction :</b> \( f(x)=\sqrt{x} \)</p>
 
-  <p><b>Étape 1 :</b> Expression de la définition</p>
-  <p>
-    \( \displaystyle \frac{\sqrt{x+h}-\sqrt{x}}{h} \)
-  </p>
+<p><b>Fonction :</b> \(f(x)=\operatorname{arcsec}(2x)\)</p>
 
-  <p><b>Étape 2 :</b> Rationalisation</p>
-  <p>
-    \( \frac{\sqrt{x+h}-\sqrt{x}}{h}
-    \cdot \frac{\sqrt{x+h}+\sqrt{x}}{\sqrt{x+h}+\sqrt{x}} \)
-  </p>
+<p><b>Étape 1 :</b> Identifier la fonction intérieure.</p>
 
-  <p><b>Étape 3 :</b> Simplification</p>
-  <p>
-    \( \frac{h}{h(\sqrt{x+h}+\sqrt{x})}
-    = \frac{1}{\sqrt{x+h}+\sqrt{x}} \)
-  </p>
+<p>\(u(x)=2x\)</p>
 
-  <p><b>Étape 4 :</b> Limite</p>
-  <p>
-    \( \displaystyle \lim_{h \to 0} \frac{1}{\sqrt{x+h}+\sqrt{x}} = \frac{1}{2\sqrt{x}} \)
-  </p>
+<p>\(u'(x)=2\)</p>
+
+<p><b>Étape 2 :</b> Appliquer la règle de la chaîne.</p>
+
+<p>
+
+\(
+f'(x)
+=
+\dfrac{1}{|2x|\sqrt{(2x)^2-1}}
+\cdot2
+\)
+
+<p><b>Étape 3 :</b> Simplifier.</p>
+
+<p>
+
+\(
+f'(x)
+=
+\dfrac{1}{|x|\sqrt{4x^2-1}}
+\)
+
+</p>
+
 </div>
 
 <div class="box result">
-  <p>\( f'(x)=\frac{1}{2\sqrt{x}} \)</p>
+
+<p><b>Résultat :</b></p>
+
+<p>
+
+\(
+f'(x)
+=
+\dfrac{1}{|x|\sqrt{4x^2-1}}
+\)
+
+</p>
+
 </div>
 
 <section class="nav-card">

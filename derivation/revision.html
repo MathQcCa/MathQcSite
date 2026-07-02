@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Révision avancée détaillée — Dérivation</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: "\\(", right: "\\)", display: false },
+      { left: "$$", right: "$$", display: true }
+    ]
+  });
+});
+</script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fb;
+  line-height: 1.6;
+}
+
+header.hero {
+  background: #111827;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.box {
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  border-left: 6px solid transparent;
+}
+
+.step {
+  background: #fef9c3;
+  border-left-color: #ca8a04;
+}
+
+.result {
+  background: #dcfce7;
+  border-left-color: #16a34a;
+}
+
+h2 {
+  margin-top: 35px;
+}
+
+.nav-card {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.back-link {
+  background: linear-gradient(135deg, #111827, #374151);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <h1>Révision </h1>
+  <p>Exercices corrigés en détail</p>
+</header>
+
+<main>
+
+<h2>Exercices corrigés en détail</h2>
+
+<!-- 1 -->
+<div class="box step">
+<p><b>1.</b> \( f(x)=x^2 e^{3x}\sin(x) \)</p>
+
+<p><b>Étape 1 — Identifier la structure :</b></p>
+<p>Produit de 3 fonctions : \( u=x^2,\; v=e^{3x},\; w=\sin(x) \)</p>
+
+<p><b>Étape 2 — Règle du produit étendue :</b></p>
+<p>\( (uvw)' = u'vw + uv'w + uvw' \)</p>
+
+<p><b>Étape 3 — Dérivées :</b></p>
+<p>\( u'=2x \)</p>
+<p>\( v'=3e^{3x} \) (chaîne)</p>
+<p>\( w'=\cos(x) \)</p>
+
+<p><b>Étape 4 — Substitution :</b></p>
+<p>\( f'(x)=2x e^{3x}\sin(x)+x^2(3e^{3x})\sin(x)+x^2 e^{3x}\cos(x) \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=e^{3x}\left(2x\sin(x)+3x^2\sin(x)+x^2\cos(x)\right) \)</p>
+</div>
+
+<!-- 2 -->
+<div class="box step">
+<p><b>2.</b> \( f(x)=\ln(x)\,e^{x^2} \)</p>
+
+<p><b>Étape 1 :</b> produit \( u=\ln(x), v=e^{x^2} \)</p>
+
+<p><b>Étape 2 — dérivées :</b></p>
+<p>\( u'=\frac{1}{x} \)</p>
+<p>\( v'=2x e^{x^2} \) (chaîne)</p>
+
+<p><b>Étape 3 — produit :</b></p>
+<p>\( f'(x)=u'v+uv' \)</p>
+
+<p><b>Étape 4 :</b></p>
+<p>\( f'(x)=\frac{1}{x}e^{x^2}+\ln(x)\cdot 2x e^{x^2} \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=e^{x^2}\left(\frac{1}{x}+2x\ln(x)\right) \)</p>
+</div>
+
+<!-- 3 -->
+<div class="box step">
+<p><b>3.</b> \( f(x)=\frac{x^2 e^x}{\ln(x)} \)</p>
+
+<p><b>Étape 1 :</b> quotient \( u=x^2 e^x,\; v=\ln(x) \)</p>
+
+<p><b>Étape 2 — dériver u :</b></p>
+<p>Produit : \( u'=2x e^x + x^2 e^x \)</p>
+
+<p><b>Étape 3 — dériver v :</b></p>
+<p>\( v'=\frac{1}{x} \)</p>
+
+<p><b>Étape 4 — quotient :</b></p>
+<p>\( f'(x)=\frac{u'v - uv'}{v^2} \)</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=\frac{(2x e^x + x^2 e^x)\ln(x) - x^2 e^x \cdot \frac{1}{x}}{\ln^2(x)} \)
+</p>
+</div>
+
+<!-- 4 -->
+<div class="box step">
+<p><b>4.</b> \( f(x)=\sin(x^2)e^{\cos(x)} \)</p>
+
+<p><b>Étape 1 :</b> produit \( u=\sin(x^2), v=e^{\cos(x)} \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( u'=2x\cos(x^2) \)</p>
+<p>\( v'=-\sin(x)e^{\cos(x)} \)</p>
+
+<p><b>Étape 3 :</b> produit</p>
+<p>\( f'(x)=u'v+uv' \)</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=2x\cos(x^2)e^{\cos(x)}-\sin(x)\sin(x^2)e^{\cos(x)} \)
+</p>
+</div>
+
+<!-- 5 -->
+<div class="box step">
+<p><b>5.</b> \( f(x)=\ln\left(\frac{e^x}{x^2+1}\right) \)</p>
+
+<p><b>Étape 1 — simplification :</b></p>
+<p>\( f(x)=\ln(e^x)-\ln(x^2+1) \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( f(x)=x-\ln(x^2+1) \)</p>
+
+<p><b>Étape 3 :</b></p>
+<p>\( f'(x)=1-\frac{2x}{x^2+1} \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=1-\frac{2x}{x^2+1} \)</p>
+</div>
+
+<!-- 6 -->
+<div class="box step">
+<p><b>6.</b> \( f(x)=e^{x\ln(x)} \)</p>
+
+<p><b>Étape 1 :</b> chaîne \( u=x\ln(x) \)</p>
+
+<p><b>Étape 2 :</b> produit interne</p>
+<p>\( u'=\ln(x)+1 \)</p>
+
+<p><b>Étape 3 :</b></p>
+<p>\( f'(x)=u'e^u \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=e^{x\ln(x)}(\ln(x)+1) \)</p>
+</div>
+
+<!-- 7 -->
+<div class="box step">
+<p><b>7.</b> \( f(x)=\frac{\tan(x)}{e^x} \)</p>
+
+<p><b>Étape 1 :</b> quotient</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( (\tan x)'=\sec^2 x \)</p>
+<p>\( (e^x)'=e^x \)</p>
+
+<p><b>Étape 3 :</b></p>
+<p>\( f'(x)=\frac{\sec^2(x)e^x-\tan(x)e^x}{e^{2x}} \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=\frac{e^x(\sec^2 x-\tan x)}{e^{2x}} \)</p>
+</div>
+
+<!-- 8 -->
+<div class="box step">
+<p><b>8.</b> \( f(x)=\ln(\sin(x)+e^x) \)</p>
+
+<p><b>Étape 1 :</b> chaîne</p>
+
+<p><b>Étape 2 :</b> dérivée interne</p>
+<p>\( (\sin x)'=\cos x \)</p>
+<p>\( (e^x)'=e^x \)</p>
+
+<p><b>Étape 3 :</b></p>
+<p>\( f'(x)=\frac{\cos(x)+e^x}{\sin(x)+e^x} \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=\frac{\cos(x)+e^x}{\sin(x)+e^x} \)</p>
+</div>
+
+<!-- 9 -->
+<div class="box step">
+<p><b>9.</b> \( f(x)=x^x \)</p>
+
+<p><b>Étape 1 :</b> logarithme</p>
+<p>\( \ln f=x\ln x \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( (\ln f)'=\frac{f'}{f} \)</p>
+
+<p><b>Étape 3 :</b></p>
+<p>\( (\ln f)'=\ln(x)+1 \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=x^x(\ln(x)+1) \)</p>
+</div>
+
+<!-- 10 -->
+<div class="box step">
+<p><b>10.</b> \( f(x)=e^{\sin(x^2)}\ln(x^3+1) \)</p>
+
+<p><b>Étape 1 :</b> produit</p>
+
+<p><b>Étape 2 :</b> chaînes :</p>
+<p>\( (\sin(x^2))'=2x\cos(x^2) \)</p>
+<p>\( (\ln(x^3+1))'=\frac{3x^2}{x^3+1} \)</p>
+
+<p><b>Étape 3 :</b> produit</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=e^{\sin(x^2)}(2x\cos(x^2))\ln(x^3+1)+e^{\sin(x^2)}\frac{3x^2}{x^3+1} \)
+</p>
+</div>
+
+<!-- 11 -->
+<div class="box step">
+<p><b>11.</b> \( f(x)=\ln(x^2 e^x) \)</p>
+
+<p><b>Étape 1 — simplification logarithmique :</b></p>
+<p>\( f(x)=\ln(x^2)+\ln(e^x) \)</p>
+<p>\( f(x)=2\ln(x)+x \)</p>
+
+<p><b>Étape 2 — dérivation :</b></p>
+<p>\( f'(x)=\frac{2}{x}+1 \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=\frac{2}{x}+1 \)</p>
+</div>
+
+<!-- 12 -->
+<div class="box step">
+<p><b>12.</b> \( f(x)=\frac{e^{2x}\cos(x)}{x} \)</p>
+
+<p><b>Étape 1 — quotient :</b> \( u=e^{2x}\cos(x), v=x \)</p>
+
+<p><b>Étape 2 — dériver u :</b></p>
+<p>\( u' = 2e^{2x}\cos(x) - e^{2x}\sin(x) \)</p>
+
+<p><b>Étape 3 — quotient :</b></p>
+<p>\( f'(x)=\frac{u'v - uv'}{v^2} \)</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=\frac{(2e^{2x}\cos(x)-e^{2x}\sin(x))x - e^{2x}\cos(x)}{x^2} \)
+</p>
+</div>
+
+<!-- 13 -->
+<div class="box step">
+<p><b>13.</b> \( f(x)=\sin(\ln(x)) \)</p>
+
+<p><b>Étape 1 — chaîne :</b></p>
+<p>extérieur : sin, intérieur : ln(x)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( f'(x)=\cos(\ln(x))\cdot \frac{1}{x} \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=\frac{\cos(\ln(x))}{x} \)</p>
+</div>
+
+<!-- 14 -->
+<div class="box step">
+<p><b>14.</b> \( f(x)=e^{\tan(x)} \)</p>
+
+<p><b>Étape 1 :</b> chaîne</p>
+<p>\( (\tan x)'=\sec^2 x \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( f'(x)=e^{\tan(x)}\sec^2(x) \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=e^{\tan(x)}\sec^2(x) \)</p>
+</div>
+
+<!-- 15 -->
+<div class="box step">
+<p><b>15.</b> \( f(x)=x\ln(x^2+1) \)</p>
+
+<p><b>Étape 1 — produit :</b></p>
+<p>\( u=x,\; v=\ln(x^2+1) \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( v'=\frac{2x}{x^2+1} \)</p>
+
+<p><b>Étape 3 :</b></p>
+<p>\( f'(x)=\ln(x^2+1)+x\frac{2x}{x^2+1} \)</p>
+</div>
+
+<div class="box result">
+<p>\( f'(x)=\ln(x^2+1)+\frac{2x^2}{x^2+1} \)</p>
+</div>
+
+<!-- 16 -->
+<div class="box step">
+<p><b>16.</b> \( f(x)=\frac{\sin(x)}{\ln(x)} \)</p>
+
+<p><b>Étape 1 — quotient :</b></p>
+<p>\( u=\sin x,\; v=\ln x \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( u'=\cos x,\; v'=\frac{1}{x} \)</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=\frac{\cos(x)\ln(x)-\sin(x)\frac{1}{x}}{\ln^2(x)} \)
+</p>
+</div>
+
+<!-- 17 -->
+<div class="box step">
+<p><b>17.</b> \( f(x)=e^{x^2+x}\sin(x) \)</p>
+
+<p><b>Étape 1 — produit :</b></p>
+<p>\( u=e^{x^2+x},\; v=\sin x \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( u'=e^{x^2+x}(2x+1) \)</p>
+<p>\( v'=\cos x \)</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=e^{x^2+x}(2x+1)\sin(x)+e^{x^2+x}\cos(x) \)
+</p>
+</div>
+
+<!-- 18 -->
+<div class="box step">
+<p><b>18.</b> \( f(x)=\ln(\sqrt{x}+e^x) \)</p>
+
+<p><b>Étape 1 :</b></p>
+<p>\( (\sqrt{x})'=\frac{1}{2\sqrt{x}} \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( f'(x)=\frac{\frac{1}{2\sqrt{x}}+e^x}{\sqrt{x}+e^x} \)</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=\frac{\frac{1}{2\sqrt{x}}+e^x}{\sqrt{x}+e^x} \)
+</p>
+</div>
+
+<!-- 19 -->
+<div class="box step">
+<p><b>19.</b> \( f(x)=x^2\ln(x)e^{x} \)</p>
+
+<p><b>Étape 1 — produit triple :</b></p>
+<p>\( u=x^2,\; v=\ln x,\; w=e^x \)</p>
+
+<p><b>Étape 2 :</b></p>
+<p>\( u'=2x,\; v'=\frac{1}{x},\; w'=e^x \)</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=2x\ln(x)e^x + x^2\frac{1}{x}e^x + x^2\ln(x)e^x \)
+</p>
+</div>
+
+<!-- 20 -->
+<div class="box step">
+<p><b>20.</b> \( f(x)=e^{\ln(x)\cdot x^2} \)</p>
+
+<p><b>Étape 1 — chaîne :</b></p>
+<p>\( u=x^2\ln(x) \)</p>
+
+<p><b>Étape 2 — produit interne :</b></p>
+<p>\( u'=2x\ln(x)+x \)</p>
+
+<p><b>Étape 3 :</b></p>
+<p>\( f'(x)=e^{x^2\ln(x)}(2x\ln(x)+x) \)</p>
+</div>
+
+<div class="box result">
+<p>
+\( f'(x)=e^{x^2\ln(x)}(2x\ln(x)+x) \)
+</p>
+</div>
+
+<section class="nav-card">
+  <a class="back-link" href="index.html">← Retour dérivation</a>
+</section>
+
+</main>
+
+</body>
+</html>

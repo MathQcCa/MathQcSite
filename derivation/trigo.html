@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dérivation trigonométrique</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: "\\(", right: "\\)", display: false },
+      { left: "$$", right: "$$", display: true }
+    ]
+  });
+});
+</script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fb;
+  line-height: 1.6;
+}
+
+header.hero {
+  background: #111827;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.box {
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  border-left: 6px solid transparent;
+}
+
+.definition { background:#e0f2fe; border-left-color:#0284c7; }
+.theory { background:#ede9fe; border-left-color:#7c3aed; }
+.step { background:#fef9c3; border-left-color:#ca8a04; }
+.result { background:#dcfce7; border-left-color:#16a34a; }
+.warning { background:#fee2e2; border-left-color:#dc2626; }
+
+h2 { margin-top: 35px; }
+
+.nav-card {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.back-link {
+  background: linear-gradient(135deg,#111827,#374151);
+  color:white;
+  padding:12px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+}
+.back-link:hover { transform: translateY(-2px); }
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <h1>Dérivation trigonométrique</h1>
+  <p>Formules de base et applications</p>
+</header>
+
+<main>
+
+<div class="box definition">
+  <h3>Formules de base</h3>
+  <p>\( (\sin x)' = \cos x \)</p>
+  <p>\( (\cos x)' = -\sin x \)</p>
+  <p>\( (\tan x)' = \sec^2 x \)</p>
+  <p>\( (\sec x)' = \sec x \tan x \)</p>
+  <p>\( (\csc x)' = -\csc x \cot x \)</p>
+  <p>\( (\cot x)' = -\csc^2 x \)</p>
+</div>
+
+<div class="box theory">
+  <h3>Relations utiles</h3>
+  <p>\( \tan x = \frac{\sin x}{\cos x} \)</p>
+  <p>\( \sec x = \frac{1}{\cos x} \)</p>
+  <p>\( \csc x = \frac{1}{\sin x} \)</p>
+  <p>\( \cot x = \frac{\cos x}{\sin x} \)</p>
+  <hr>
+    <h3>Identités trigonométriques utiles</h3>
+
+  <p>\( \sin^2 x+\cos^2 x=1 \)</p>
+
+  <p>\( 1+\tan^2 x=\sec^2 x \)</p>
+
+  <p>\( 1+\cot^2 x=\csc^2 x \)</p>
+
+  
+
+</div>
+
+<hr>
+
+<h2>Exemple 1 — Retrouver tan à partir de sin et cos</h2>
+
+<div class="box step">
+  <p>\( \tan x = \frac{\sin x}{\cos x} \)</p>
+
+  <p><b>Règle du quotient :</b></p>
+  <p>\( (\tan x)' = \frac{\cos x \cdot \cos x - \sin x(-\sin x)}{\cos^2 x} \)</p>
+
+  <p>\( = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} \)</p>
+
+  <p>\( = \frac{1}{\cos^2 x} \)</p>
+</div>
+
+<div class="box result">
+  <p>\( (\tan x)' = \sec^2 x \)</p>
+</div>
+
+<hr>
+
+<h2>Exemple 2 — Retrouver sec à partir de cos</h2>
+
+<div class="box step">
+  <p>\( \sec x = \frac{1}{\cos x} = (\cos x)^{-1} \)</p>
+
+  <p>\( (\sec x)' = -(\cos x)^{-2}(-\sin x) \)</p>
+
+  <p>\( = \frac{\sin x}{\cos^2 x} \)</p>
+
+  <p>\( = \frac{1}{\cos x} \cdot \frac{\sin x}{\cos x} \)</p>
+</div>
+
+<div class="box result">
+  <p>\( (\sec x)' = \sec x \tan x \)</p>
+</div>
+
+<hr>
+
+<h2>Exemple 3 — Retrouver csc à partir de sin</h2>
+
+<div class="box step">
+  <p>\( \csc x = \frac{1}{\sin x} = (\sin x)^{-1} \)</p>
+
+  <p>\( (\csc x)' = -(\sin x)^{-2}\cos x \)</p>
+
+  <p>\( = -\frac{\cos x}{\sin^2 x} \)</p>
+
+  <p>\( = -\csc x \cot x \)</p>
+</div>
+
+<div class="box result">
+  <p>\( (\csc x)' = -\csc x \cot x \)</p>
+</div>
+
+<hr>
+
+<h2>Exemple 4 — Retrouver cot à partir de cos et sin</h2>
+
+<div class="box step">
+  <p>\( \cot x = \frac{\cos x}{\sin x} \)</p>
+
+  <p>\( (\cot x)' = \frac{-\sin x \cdot \sin x - \cos x \cdot \cos x}{\sin^2 x} \)</p>
+
+  <p>\( = -\frac{\sin^2 x + \cos^2 x}{\sin^2 x} \)</p>
+
+  <p>\( = -\frac{1}{\sin^2 x} \)</p>
+</div>
+
+<div class="box result">
+  <p>\( (\cot x)' = -\csc^2 x \)</p>
+</div>
+
+<hr>
+
+<h2>Exemple 5 — composition trigonométrique</h2>
+
+<div class="box step">
+  <p>\( f(x)=\sin(x^2) \)</p>
+
+  <p>\( f'(x)=\cos(x^2)\cdot 2x \)</p>
+</div>
+
+<div class="box result">
+  <p>\( f'(x)=2x\cos(x^2) \)</p>
+</div>
+
+<hr>
+
+<h2>Exemple 6 — produit trigonométrique</h2>
+
+<div class="box step">
+  <p>\( f(x)=x\cos x \)</p>
+
+  <p>\( f'(x)=1\cdot \cos x + x(-\sin x) \)</p>
+</div>
+
+<div class="box result">
+  <p>\( f'(x)=\cos x - x\sin x \)</p>
+</div>
+
+<hr>
+
+<h2>Exemple 7 — quotient trigonométrique</h2>
+
+<div class="box step">
+  <p>\( f(x)=\frac{\sin x}{x} \)</p>
+
+  <p>\( f'(x)=\frac{x\cos x - \sin x}{x^2} \)</p>
+</div>
+
+<div class="box result">
+  <p>\( f'(x)=\frac{x\cos x - \sin x}{x^2} \)</p>
+</div>
+
+<section class="nav-card">
+  <a class="back-link" href="index.html">← Retour dérivation</a>
+</section>
+
+</main>
+
+</body>
+</html>
