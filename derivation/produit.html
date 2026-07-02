@@ -1,3 +1,11 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+
+
+
 <header class="hero">
   <h1>Règle du produit</h1>
   <p>Dérivée d’un produit de fonctions</p>
@@ -33,6 +41,102 @@
       Oublier de dériver les deux facteurs séparément.
     </p>
   </div>
+
+
+<h2>Exemple 1 — Polynômes</h2>
+
+<p><b>Fonction :</b> \( f(x) = x^2(3x + 5) \)</p>
+
+<p><b>Étapes :</b></p>
+<p>
+\( u(x)=x^2,\quad v(x)=3x+5 \)
+</p>
+
+<p>
+\( u'(x)=2x,\quad v'(x)=3 \)
+</p>
+
+<p>
+Application :
+</p>
+
+<p>
+\( f'(x)=2x(3x+5)+x^2(3) \)
+</p>
+
+<p>
+Résultat :
+</p>
+
+<p>
+\( f'(x)=9x^2+10x \)
+</p>
+
+<hr>
+
+<h2>Exemple 2 — Racine</h2>
+
+<p><b>Fonction :</b> \( f(x)=x\sqrt{x} \)</p>
+
+<p>Réécriture :</p>
+
+<p>
+\( f(x)=x \cdot x^{1/2} \)
+</p>
+
+<p>
+\( u(x)=x,\quad v(x)=x^{1/2} \)
+</p>
+
+<p>
+\( u'(x)=1,\quad v'(x)=\frac{1}{2}x^{-1/2} \)
+</p>
+
+<p>
+Application :
+</p>
+
+<p>
+\( f'(x)=x^{1/2}+\frac{1}{2}x^{1/2} \)
+</p>
+
+<p>
+Résultat :
+</p>
+
+<p>
+\( f'(x)=\frac{3}{2}x^{1/2} \)
+</p>
+
+<hr>
+
+<h2>Exemple 3 — Exponentielle</h2>
+
+<p><b>Fonction :</b> \( f(x)=x^2 e^x \)</p>
+
+<p>
+\( u(x)=x^2,\quad v(x)=e^x \)
+</p>
+
+<p>
+\( u'(x)=2x,\quad v'(x)=e^x \)
+</p>
+
+<p>
+Application :
+</p>
+
+<p>
+\( f'(x)=2x e^x + x^2 e^x \)
+</p>
+
+<p>
+Factorisation :
+</p>
+
+<p>
+\( f'(x)=e^x(x^2+2x) \)
+</p>
   
   <section class="card">
     <a href="index.html">← Retour dérivation</a>
