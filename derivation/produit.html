@@ -1,144 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Règle du produit</title>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 
 <script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body);"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: "\\(", right: "\\)", display: false },
+      { left: "$$", right: "$$", display: true }
+    ]
+  });
+});
+</script>
 
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fb;
+  line-height: 1.6;
+}
+
+header.hero {
+  background: #111827;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* BLOCS */
+.box {
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  border-left: 6px solid transparent;
+}
+
+/* TYPES DE BLOCS */
+.definition {
+  background: #e0f2fe;
+  border-left-color: #0284c7;
+}
+
+.theory {
+  background: #ede9fe;
+  border-left-color: #7c3aed;
+}
+
+.step {
+  background: #fef9c3;
+  border-left-color: #ca8a04;
+}
+
+.result {
+  background: #dcfce7;
+  border-left-color: #16a34a;
+}
+
+.warning {
+  background: #fee2e2;
+  border-left-color: #dc2626;
+}
+
+/* TITRES */
+h2 {
+  margin-top: 35px;
+}
+
+code {
+  background: #111827;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
 
 <header class="hero">
   <h1>Règle du produit</h1>
   <p>Dérivée d’un produit de fonctions</p>
 </header>
 
-<main class="container">
+<main>
 
-  <div class="box intuition">
-    <h3>Intuition</h3>
-    <p>
-      Quand deux fonctions sont multipliées, leurs variations interagissent.
-    </p>
-  </div>
+<div class="box definition">
+  <h3>Intuition</h3>
+  <p>Quand deux fonctions sont multipliées, leurs variations interagissent.</p>
+</div>
 
-  <div class="box theory">
-    <h3>Règle du produit</h3>
-    <p>
-      (f·g)' = f'g + fg'
-    </p>
-  </div>
+<div class="box theory">
+  <h3>Règle du produit</h3>
+  <p>\( (f \cdot g)' = f'g + fg' \)</p>
+</div>
 
-  <div class="box example">
-    <h3>Exemple</h3>
-    <p>
-      f(x)=x²·sin(x)<br>
-      f'(x)=2x·sin(x)+x²·cos(x)
-    </p>
-  </div>
+<div class="box warning">
+  <h3>Erreur fréquente</h3>
+  <p>Oublier de dériver les deux facteurs séparément.</p>
+</div>
 
-  <div class="box warning">
-    <h3>Erreur fréquente</h3>
-    <p>
-      Oublier de dériver les deux facteurs séparément.
-    </p>
-  </div>
-
+<hr>
 
 <h2>Exemple 1 — Polynômes</h2>
 
-<p><b>Fonction :</b> \( f(x) = x^2(3x + 5) \)</p>
+<div class="box step">
+  <p><b>Fonction :</b> \( f(x)=x^2(3x+5) \)</p>
+  <p><b>Étape 1 :</b> \( u(x)=x^2,\; v(x)=3x+5 \)</p>
+  <p><b>Étape 2 :</b> \( u'(x)=2x,\; v'(x)=3 \)</p>
+</div>
 
-<p><b>Étapes :</b></p>
-<p>
-\( u(x)=x^2,\quad v(x)=3x+5 \)
-</p>
+<div class="box step">
+  <p><b>Application :</b></p>
+  <p>\( f'(x)=2x(3x+5)+x^2(3) \)</p>
+</div>
 
-<p>
-\( u'(x)=2x,\quad v'(x)=3 \)
-</p>
-
-<p>
-Application :
-</p>
-
-<p>
-\( f'(x)=2x(3x+5)+x^2(3) \)
-</p>
-
-<p>
-Résultat :
-</p>
-
-<p>
-\( f'(x)=9x^2+10x \)
-</p>
+<div class="box result">
+  <p><b>Résultat :</b></p>
+  <p>\( f'(x)=9x^2+10x \)</p>
+</div>
 
 <hr>
 
 <h2>Exemple 2 — Racine</h2>
 
-<p><b>Fonction :</b> \( f(x)=x\sqrt{x} \)</p>
+<div class="box step">
+  <p><b>Fonction :</b> \( f(x)=x\sqrt{x} \)</p>
+  <p>\( f(x)=x \cdot x^{1/2} \)</p>
+</div>
 
-<p>Réécriture :</p>
+<div class="box step">
+  <p>\( u(x)=x,\; v(x)=x^{1/2} \)</p>
+  <p>\( u'(x)=1,\; v'(x)=\frac{1}{2}x^{-1/2} \)</p>
+</div>
 
-<p>
-\( f(x)=x \cdot x^{1/2} \)
-</p>
+<div class="box step">
+  <p>\( f'(x)=x^{1/2}+\frac{1}{2}x^{1/2} \)</p>
+</div>
 
-<p>
-\( u(x)=x,\quad v(x)=x^{1/2} \)
-</p>
-
-<p>
-\( u'(x)=1,\quad v'(x)=\frac{1}{2}x^{-1/2} \)
-</p>
-
-<p>
-Application :
-</p>
-
-<p>
-\( f'(x)=x^{1/2}+\frac{1}{2}x^{1/2} \)
-</p>
-
-<p>
-Résultat :
-</p>
-
-<p>
-\( f'(x)=\frac{3}{2}x^{1/2} \)
-</p>
+<div class="box result">
+  <p>\( f'(x)=\frac{3}{2}x^{1/2} \)</p>
+</div>
 
 <hr>
 
 <h2>Exemple 3 — Exponentielle</h2>
 
-<p><b>Fonction :</b> \( f(x)=x^2 e^x \)</p>
+<div class="box step">
+  <p><b>Fonction :</b> \( f(x)=x^2 e^x \)</p>
+  <p>\( u(x)=x^2,\; v(x)=e^x \)</p>
+</div>
 
-<p>
-\( u(x)=x^2,\quad v(x)=e^x \)
-</p>
+<div class="box step">
+  <p>\( u'(x)=2x,\; v'(x)=e^x \)</p>
+</div>
 
-<p>
-\( u'(x)=2x,\quad v'(x)=e^x \)
-</p>
+<div class="box step">
+  <p>\( f'(x)=2x e^x + x^2 e^x \)</p>
+</div>
 
-<p>
-Application :
-</p>
+<div class="box result">
+  <p>\( f'(x)=e^x(x^2+2x) \)</p>
+</div>
 
-<p>
-\( f'(x)=2x e^x + x^2 e^x \)
-</p>
-
-<p>
-Factorisation :
-</p>
-
-<p>
-\( f'(x)=e^x(x^2+2x) \)
-</p>
-  
-  <section class="card">
-    <a href="index.html">← Retour dérivation</a>
-  </section>
 </main>
+
+</body>
+</html>
